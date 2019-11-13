@@ -7,8 +7,8 @@
 
  class NomeDaClasse{
     /**
-     * atributos
-     */    
+    * atributos
+    */    
 
     public $atributo1;
     
