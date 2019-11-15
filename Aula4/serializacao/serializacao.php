@@ -32,17 +32,17 @@ echo "<pre>";
 var_dump($funcionario);
 
 echo serialize($funcionario);
-
+echo "<br>";
 $serializado = serialize($funcionario);
 
 unset($funcionario);
 
-echo "<br><br>";
+echo "<br>";
 $funcionario = unserialize($serializado);
 
 
 $funcionario->oi();
 
-
+var_dump($funcionario);
 
 ?>
