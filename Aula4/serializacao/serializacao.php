@@ -13,6 +13,7 @@ class Funcionario{
     }
     public function __wakeup(){
         echo "Morri nao, pegadinha...<br>"; 
+        $this->sobrenome = "Atributo com wake up";
     }
     
 }
