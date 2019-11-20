@@ -1,21 +1,31 @@
 <?php
 
-$servidor = 'mysql:host=localhost;dbname=blog';
-$usuario = 'developer';
-$senha = '4linux';
+class conectaDB{
+    public function __construct($server, $user, $pass){
+        //$server = 'mysql:host=localhost;dbname=blog';
+        //$user = 'developer';
+        //$pass = '4linux';
+        $this->server = $server;
+        $this->user = $user;
+        $this->pass = $pass;
 
-try{
-    $conexao = new PDO($servidor,$usuario,$senha);
-    echo " <pre> ";
-    echo "Conexao efetuada com sucesso <br>";
-    $res = $conexao->query('SELECT * FROM usuarios');
-    foreach ($res as $linha){
-        print_r($linha);       
+        try{
+            $conn = new PDO($this->server, $this->user, $this->pass);
+            $this->conn = $conn;
+        } catch (PDOException $e) {
+            echo "Erro: {$e->getMessage()}";
+        }
     }
-    $conexao = NULL; 
 
-} catch (PDOException $e){
-    echo "Erro{$e->getMessage()}<br>";
+    public function select($table){
+        return $this->conn->query("select * from {$table}");
+    }
 }
 
-?>
+$obj = new conectaDB('mysql:host=localhost;dbname=blog', 'developer', '4linux');
+$q = $obj->select('usuarios');
+foreach ($q as $row) {
+    echo "<pre>";
+    print_r($row);
+    echo "</pre>";
+}
