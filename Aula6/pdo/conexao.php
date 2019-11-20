@@ -10,9 +10,9 @@ try{
     echo "Conexao efetuada com sucesso <br>";
     $res = $conexao->query('SELECT * FROM usuarios');
     foreach ($res as $linha){
-
-        print_r($linha);
+        print_r($linha);       
     }
+    $conexao = NULL; 
 
 } catch (PDOException $e){
     echo "Erro{$e->getMessage()}<br>";
