@@ -12,7 +12,7 @@ namespace Curso\Loja\Entidades;
      /* @column(type="string", length=50)*/
      protected $nome; 
 
-     /* @column(type="decima", precision=10, scale=2)*/
+     /* @column(type="decimal", precision=10, scale=2)*/
      protected $preco;
 
     public function getId()
